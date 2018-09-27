@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{materia.materia}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-icon name="clipboard" item-start></ion-icon>
+      Primer parcial
+      <p>{{materia.parcial1}}</p>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="clipboard" item-start></ion-icon>
+      Segundo parcial
+      <p>{{materia.parcial2}}</p>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="school" item-start></ion-icon>
+      Horas dictadas
+      <p>{{materia.dictadas}}</p>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="person" item-start></ion-icon>
+      Horas asistidas
+      <p>{{materia.asistidas}}</p>
+    </ion-item>
+    <ion-item>
+      <!-- <ion-icon name="person" item-start></ion-icon> -->
+      Porcentaje de asistencia
+      <p item-end>{{(materia.asistidas/materia.dictadas)*100}}%</p>
+    </ion-item>
+    <ion-item-divider>
+      Zona de peligro
+    </ion-item-divider>
+    <ion-item>
+      <!-- <ion-icon name="person" item-start></ion-icon> -->
+      Puedes faltar
+      <p item-end>{{materia.faltar}} clases</p>
+    </ion-item>
+    <ion-item>
+      <ion-label>Fin de semestre</ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="YYYY-MM-DD" [(ngModel)]="fechaFin"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <button (click)="getDias()" color="danger" ion-button block>Calcular</button>
+    </ion-item>
+  </ion-list>
+</ion-content>

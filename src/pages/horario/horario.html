@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{dia.dia}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid no-padding>
+    <ion-row>
+      <ion-col no-padding>  
+        <button (click)="restaFecha()" clear ion-button icon-only>
+          <ion-icon name="arrow-dropleft"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col no-padding>
+        <h2>{{fecha.format('DD[/]MM[/]YYYY')}}</h2>
+      </ion-col>
+      <ion-col text-right no-padding>
+        <button (click)="sumaFecha()" clear ion-button icon-only>
+          <ion-icon name="arrow-dropright"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>  
+  <ion-card *ngFor="let materia of materiasFiltradas">
+    <ion-card-header text-center>
+      {{materia.horario[0].inicio +' - '+ materia.horario[0].fin}}
+    </ion-card-header>
+    <ion-card-content>
+      {{materia.materia}}
+    </ion-card-content>
+  </ion-card>
+  <ion-card *ngIf="materiasFiltradas.length === 0">
+    <ion-card-content>
+      <p text-center>No tiene clases este día.</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

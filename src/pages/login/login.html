@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <br>
+  <div class="logo" text-center>
+    <img src="assets/imgs/ucsg_solo150x150.svg" />
+  </div>
+  <div padding>    
+    <ion-list>
+      <ion-item *ngIf="error">        
+        <p text-wrap ion-text color="danger">{{error}}</p>
+        <ion-icon name="alert" color="danger" item-end></ion-icon>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Usuario</ion-label>
+        <ion-input [(ngModel)]="model.usuario" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Contraseña</ion-label>
+        <ion-input [(ngModel)]="model.contrasena" type="password"></ion-input>
+      </ion-item>
+    </ion-list>
+    <button (click)="login()" color="danger" ion-button block>Iniciar sesión</button>
+  </div>
+</ion-content>

@@ -1,18 +1,49 @@
 <ion-header>
   <ion-navbar>
-    <button ion-button menuToggle>
+    <button *ngIf="usuario" ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+    <ion-title>Dashboard</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h3>Ionic Menu Starter</h3>
-
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
-
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+  <ion-grid no-padding>
+    <ion-row>
+      <ion-col no-padding>
+        <ion-card (click)="goHorario()">
+          <ion-card-content>
+            <h1 class="display" text-center>{{contadorClasesHoy}}/<small>{{materias.length}}</small></h1>
+            <p text-center>Materias hoy</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card (click)="goTareas()">
+          <ion-card-content>
+            <h1 class="display" text-center>{{tareas.length}}</h1>
+            <p text-center>Tareas</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <h1>Materias</h1>
+  <ion-card *ngFor="let materia of materias" (click)="goMateria(materia)">
+    <ion-card-header text-center>
+      {{materia.materia}}
+    </ion-card-header>
+    <ion-item>
+      <h1 item-start>{{materia.parcial1}}</h1>
+      <h2>Primer parcial</h2>
+    </ion-item>
+    <ion-item>
+      <h1 item-start>{{materia.parcial2}}</h1>
+      <h2>Segundo parcial</h2>
+    </ion-item>
+    <ion-item>
+      <h1 item-start>{{(materia.asistidas/materia.dictadas)*100}}%</h1>
+      <h2>Asistencia</h2>
+    </ion-item>
+  </ion-card>
 </ion-content>

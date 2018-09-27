@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons end>
+      <button ion-button icon-end color="danger" (click)="cerrarSesion()">
+        Cerrar sesión
+        <ion-icon name="log-out"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <div *ngIf="catoler">
+    <br>
+    <ion-card>
+      <ion-card-content>
+        <p>{{catoler.nombre}}</p>
+        <p>{{catoler.correo}}</p>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

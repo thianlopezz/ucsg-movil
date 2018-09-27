@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Tareas</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card *ngFor="let tarea of tareas">
+    <ion-card-header text-center>
+      {{tarea.materia}}
+    </ion-card-header>
+    <ion-card-content>
+      <p text-wrap>{{tarea.descripcion}}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
